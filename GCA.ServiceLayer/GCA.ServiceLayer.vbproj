@@ -101,12 +101,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CGA.DataAccess\CGA.DataAccess.vbproj">
-      <Project>{88b04baf-05f7-4c6b-978e-7ac65a0eed9e}</Project>
-      <Name>CGA.DataAccess</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
