@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A2AC1393-9BA0-4633-987B-82C9E154B4F7}</ProjectGuid>
+    <ProjectGuid>{88B04BAF-05F7-4C6B-978E-7AC65A0EED9E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>GCA.DataAccess.TRAN</RootNamespace>
-    <AssemblyName>GCA.DataAccess.TRAN</AssemblyName>
+    <RootNamespace>CGA.DataAccess</RootNamespace>
+    <AssemblyName>CGA.DataAccess</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>GCA.DataAccess.TRAN.xml</DocumentationFile>
+    <DocumentationFile>CGA.DataAccess.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -27,7 +27,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>GCA.DataAccess.TRAN.xml</DocumentationFile>
+    <DocumentationFile>CGA.DataAccess.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

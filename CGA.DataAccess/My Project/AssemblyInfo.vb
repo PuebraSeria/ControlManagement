@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("GCA.DataAccess.TRAN")> 
+<Assembly: AssemblyTitle("CGA.DataAccess")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("GCA.DataAccess.TRAN")> 
+<Assembly: AssemblyProduct("CGA.DataAccess")> 
 <Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("7d4dd2b9-207b-49f6-a1f8-d24b56ea0ea9")> 
+<Assembly: Guid("196bf85b-2e9a-4cff-bd05-4da85c4beb12")> 
 
 ' Version information for an assembly consists of the following four values:
 '

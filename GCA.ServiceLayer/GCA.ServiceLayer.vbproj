@@ -102,9 +102,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GCA.DataAccess.TRAN\GCA.DataAccess.vbproj">
-      <Project>{a2ac1393-9ba0-4633-987b-82c9e154b4f7}</Project>
-      <Name>GCA.DataAccess</Name>
+    <ProjectReference Include="..\CGA.DataAccess\CGA.DataAccess.vbproj">
+      <Project>{88b04baf-05f7-4c6b-978e-7ac65a0eed9e}</Project>
+      <Name>CGA.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
