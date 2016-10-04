@@ -14,13 +14,13 @@
                     <a href="frm_SPV_ConEstadoDeControles.aspx"><i class="fa fa-desktop "></i>Estado de los controles</a>
                 </li>
                 <li>
-                    <a href="ui.html"><i class="fa fa-table "></i>Crear control</a>
+                    <a href="frm_SPV_CrearControl.aspx"><i class="fa fa-table "></i>Crear control</a>
                 </li>
                 <li>
-                    <a href="blank.html"><i class="fa fa-edit "></i>Asignar control</a>
+                    <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-qrcode "></i>Editar control</a>
+                    <a href="frm_SPV_EditarControl.aspx"><i class="fa fa-qrcode "></i>Editar control</a>
                 </li>
                 <li class="active-link">
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>

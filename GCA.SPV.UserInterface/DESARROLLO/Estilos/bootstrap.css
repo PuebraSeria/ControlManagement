@@ -999,7 +999,7 @@ h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: #160db9;
 }
 h1 small,
 h2 small,
@@ -2416,8 +2416,10 @@ input[type="datetime-local"].input-lg,
 input[type="month"].input-lg {
   line-height: 46px;
 }
-.form-group {
+.form-group 
+{
   margin-bottom: 15px;
+  padding-bottom: 4%;
 }
 .radio,
 .checkbox {

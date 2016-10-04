@@ -132,8 +132,11 @@
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
+    <Content Include="Presentation\frm_SPV_AsignarControl.aspx" />
     <Content Include="Presentation\frm_SPV_ConEstadoDeControles.aspx" />
     <Content Include="Presentation\frm_SPV_ConGenerarReporte.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearControl.aspx" />
+    <Content Include="Presentation\frm_SPV_EditarControl.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
@@ -168,6 +171,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presentation\frm_SPV_AsignarControl.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AsignarControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AsignarControl.aspx.vb">
+      <DependentUpon>frm_SPV_AsignarControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\frm_SPV_ConEstadoDeControles.aspx.designer.vb">
       <DependentUpon>frm_SPV_ConEstadoDeControles.aspx</DependentUpon>
     </Compile>
@@ -181,6 +191,20 @@
     <Compile Include="Presentation\frm_SPV_ConGenerarReporte.aspx.vb">
       <DependentUpon>frm_SPV_ConGenerarReporte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearControl.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearControl.aspx.vb">
+      <DependentUpon>frm_SPV_CrearControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_EditarControl.aspx.designer.vb">
+      <DependentUpon>frm_SPV_EditarControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_EditarControl.aspx.vb">
+      <DependentUpon>frm_SPV_EditarControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
