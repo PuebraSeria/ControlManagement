@@ -3,19 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA", "GCA\GCA.vbproj", "{50A90217-6DA6-4BEA-BA40-8CCFE510A353}"
-EndProject
-<<<<<<< .merge_file_a00816
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.ServiceLayer", "GCA.ServiceLayer\GCA.ServiceLayer.vbproj", "{BF467B16-8D15-4917-B06B-1BBEE0D07F5C}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.Domain", "GCA.Domain\GCA.Domain.vbproj", "{1835687A-2EB9-4308-95F7-57DC713D977C}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CGA.DataAccess", "CGA.DataAccess\CGA.DataAccess.vbproj", "{88B04BAF-05F7-4C6B-978E-7AC65A0EED9E}"
-=======
+EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.SPV.UserInterface", "GCA.SPV.UserInterface\GCA.SPV.UserInterface.vbproj", "{728DCF18-62FB-4CD8-8C48-310F9AB4DF87}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.OFI.UserInterface", "GCA.OFI.UserInterface\GCA.OFI.UserInterface.vbproj", "{48BA7786-A10E-4AC1-A22F-B0B256A73525}"
->>>>>>> .merge_file_a05660
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,11 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{50A90217-6DA6-4BEA-BA40-8CCFE510A353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50A90217-6DA6-4BEA-BA40-8CCFE510A353}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50A90217-6DA6-4BEA-BA40-8CCFE510A353}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50A90217-6DA6-4BEA-BA40-8CCFE510A353}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< .merge_file_a00816
 		{BF467B16-8D15-4917-B06B-1BBEE0D07F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF467B16-8D15-4917-B06B-1BBEE0D07F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF467B16-8D15-4917-B06B-1BBEE0D07F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,7 +31,6 @@ Global
 		{88B04BAF-05F7-4C6B-978E-7AC65A0EED9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88B04BAF-05F7-4C6B-978E-7AC65A0EED9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88B04BAF-05F7-4C6B-978E-7AC65A0EED9E}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{728DCF18-62FB-4CD8-8C48-310F9AB4DF87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{728DCF18-62FB-4CD8-8C48-310F9AB4DF87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{728DCF18-62FB-4CD8-8C48-310F9AB4DF87}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,7 +39,6 @@ Global
 		{48BA7786-A10E-4AC1-A22F-B0B256A73525}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48BA7786-A10E-4AC1-A22F-B0B256A73525}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48BA7786-A10E-4AC1-A22F-B0B256A73525}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> .merge_file_a05660
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

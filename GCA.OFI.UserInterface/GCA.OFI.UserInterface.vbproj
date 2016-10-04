@@ -122,6 +122,15 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DESARROLLO\Estilos\bootstrap.css" />
+    <Content Include="DESARROLLO\Estilos\custom.css" />
+    <Content Include="DESARROLLO\Estilos\font-awesome.css" />
+    <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.svg" />
+    <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.svg" />
+    <Content Include="DESARROLLO\Imagenes\logo.png" />
+    <Content Include="DESARROLLO\JS\bootstrap.min.js" />
+    <Content Include="DESARROLLO\JS\custom.js" />
+    <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
     <Content Include="Presentation\frm_OFI_ConEstadoReportes.aspx" />
     <Content Include="Presentation\frm_OFI_ManEnviarControl.aspx" />
@@ -187,6 +196,14 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="frm_OFI_MasterPageOficina.Master" />
+    <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.eot" />
+    <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.ttf" />
+    <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.woff" />
+    <Content Include="DESARROLLO\Fuentes\FontAwesome.otf" />
+    <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.eot" />
+    <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.ttf" />
+    <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.woff" />
+    <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regulard41d.eot" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -203,12 +220,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GCA\GCA.vbproj">
-      <Project>{50a90217-6da6-4bea-ba40-8ccfe510a353}</Project>
-      <Name>GCA</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
