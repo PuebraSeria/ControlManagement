@@ -23,15 +23,6 @@ Partial Public Class frm_IDX_MasterPageIndex
     Protected WithEvents head As Global.System.Web.UI.WebControls.ContentPlaceHolder
     
     '''<summary>
-    '''menu control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents menu As Global.System.Web.UI.WebControls.ContentPlaceHolder
-    
-    '''<summary>
     '''titulo control.
     '''</summary>
     '''<remarks>

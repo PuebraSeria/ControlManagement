@@ -29,27 +29,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <img src="DESARROLLO/Imagenes/logo.png" />
-                    </a>
-
+                        <h4 style="color:#fff;padding: 2%;">Poder Judicial de la República de Costa Rica</h4>
+                        <h4 style="color:#fff;padding: 2%;">Gestor de Controles Adminsitrativos</h4>
                 </div>
-
-                <span class="logout-spn">
-                    <a href="#" style="color: #fff;">LOGOUT</a>
-
-                </span>
             </div>
         </div>
-        <asp:ContentPlaceHolder ID="menu" runat="server">
-        </asp:ContentPlaceHolder>
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
-                    <div class="col-lg-12">
-                        <asp:ContentPlaceHolder ID="titulo" runat="server">
-                        </asp:ContentPlaceHolder>
-
+                    <div class="text-center">
+                        <h2>
+                            <asp:ContentPlaceHolder ID="titulo" runat="server"></asp:ContentPlaceHolder>
+                        </h2>
                     </div>
                 </div>
                 <!-- /. ROW  -->

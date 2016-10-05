@@ -16,6 +16,7 @@
         <link href="DESARROLLO/Estilos/custom.css" rel="stylesheet" />
         <!-- GOOGLE FONTS-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <link href="DESARROLLO/Estilos/Encabezado.css" rel="stylesheet" />
     </head>
     <body>
         <div id="wrapper">
@@ -27,10 +28,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"><img src="DESARROLLO/Imagenes/logo.png" /></a>
+                        <h4 style="color:#fff;padding: 2%;">Poder Judicial de la República de Costa Rica</h4>
+                        <h4 style="color:#fff;padding: 2%;">Gestor de Controles Adminsitrativos</h4>
                     </div>
-
-                    <span class="logout-spn"><a href="#" style="color: #fff;">LOGOUT</a></span>
                 </div>
             </div>
             <asp:ContentPlaceHolder ID="menu" runat="server"></asp:ContentPlaceHolder>

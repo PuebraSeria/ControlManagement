@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DESARROLLO\Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -127,7 +128,6 @@
     <Content Include="DESARROLLO\Estilos\font-awesome.css" />
     <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.svg" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.svg" />
-    <Content Include="DESARROLLO\Imagenes\logo.png" />
     <Content Include="DESARROLLO\JS\bootstrap.min.js" />
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />

@@ -36,14 +36,14 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <form class="form-horizontal">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="txtCodigo">Código:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-xs-3" for="txtCodigo">Código:</label>
+            <div class="col-xs-9">
                 <asp:TextBox ID="txtCodigo" TextMode="Number" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="txtNombreControl">Nombre:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-xs-3" for="txtNombreControl">Nombre:</label>
+            <div class="col-xs-9">
                 <asp:TextBox ID="txtNombreControl" TextMode="SingleLine" runat="server"></asp:TextBox>
             </div>
         </div>
@@ -51,8 +51,8 @@
             <h3>Períodicidad</h3>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" for="ddlPeriodicidad">Días/Anual/Mensual:</label>
-            <div class="col-sm-10">
+            <label class="control-label col-xs-3" for="ddlPeriodicidad">Días/Anual/Mensual:</label>
+            <div class="col-xs-9">
                 <asp:DropDownList ID="ddlPeriodicidad" runat="server">
                     <asp:ListItem Value="0">Seleccione</asp:ListItem>
                     <asp:ListItem>Diario</asp:ListItem>
@@ -60,6 +60,42 @@
                     <asp:ListItem>Mensual</asp:ListItem>
                     <asp:ListItem>Anual</asp:ListItem>
                 </asp:DropDownList>
+            </div>
+        </div>
+        <div class="form-group" style="padding-top: 4%;">
+            <label class="control-label col-xs-3">F. Inicial:</label>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Dia</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Mes</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Año</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">F. Final:</label>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Dia</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Mes</option>
+                </select>
+            </div>
+            <div class="col-xs-3">
+                <select class="form-control">
+                    <option>Año</option>
+                </select>
             </div>
         </div>
     </form>
