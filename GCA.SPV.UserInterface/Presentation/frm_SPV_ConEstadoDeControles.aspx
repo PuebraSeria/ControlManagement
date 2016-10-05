@@ -40,6 +40,12 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
+    <script src="../DESARROLLO/highCharts/jquery.js"></script>
+    <script src="../DESARROLLO/highCharts/highcharts.js"></script>
+    <script src="../DESARROLLO/highCharts/exporting.js"></script>    
+    <div id="container" style="width: 100%;"></div>
+    <script src="../DESARROLLO/Graficos/graficoEstadoControles.js"></script>
+    
+
 </asp:Content>
