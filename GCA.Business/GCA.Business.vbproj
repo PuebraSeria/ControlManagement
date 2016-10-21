@@ -101,6 +101,16 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CGA.DataAccess\GCA.DataAccess.vbproj">
+      <Project>{88b04baf-05f7-4c6b-978e-7ac65a0eed9e}</Project>
+      <Name>GCA.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GCA.Domain\GCA.Domain.vbproj">
+      <Project>{1835687A-2EB9-4308-95F7-57DC713D977C}</Project>
+      <Name>GCA.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
