@@ -25,15 +25,15 @@
       Me.tc_CodigoValue = Value
     End Set
   End Property
-  
-  ' Métodos propiedad Nombre
-  Public Property Codigo() As String
-    Get
-      Return Me.tc_NombreValue
-    End Get
-    
-    Set
-      Me.tc_NombreValue = Value
-    End Set
-  End Property
+
+    ' Métodos propiedad Nombre
+    Public Property Nombre() As String
+        Get
+            Return Me.tc_NombreValue
+        End Get
+
+        Set
+            Me.tc_NombreValue = Value
+        End Set
+    End Property
 End Class

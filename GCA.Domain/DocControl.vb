@@ -17,11 +17,11 @@
         Me.tc_Codigo_DocControl = codigo
         Me.tc_Nombre_DocControl = nombre
         Me.tn_Periocidad_DocControl = cantidad
-        Me.tf_FechaInicio_DocControl = fehca_inicio      
+        Me.tf_FechaInicio_DocControl = fecha_inicio
     End Sub
 
 
-    Public Property tn_Periocidad_DocControl() As Integer
+    Public Property Periocidad_DocControl() As Integer
         Get
             Return tn_Periocidad_DocControl
 
@@ -32,7 +32,7 @@
         End Set
     End Property
 
-    Public Property tc_Codigo_DocControl() As String
+    Public Property Codigo_DocControl() As String
         Get
             Return tc_Codigo_DocControl
         End Get
@@ -42,7 +42,7 @@
         End Set
     End Property
 
-    Public Property tc_Nombre_DocControl() As String
+    Public Property Nombre_DocControl() As String
         Get
             Return tc_Nombre_DocControl
 
@@ -53,7 +53,7 @@
         End Set
     End Property
 
-    Public Property tf_FechaInicio_DocControl() As String
+    Public Property FechaInicio_DocControl() As String
         Get
             Return tf_FechaInicio_DocControl
         End Get

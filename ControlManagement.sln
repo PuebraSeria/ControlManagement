@@ -9,6 +9,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.DataAccess", "CGA.DataA
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GCA.Business", "GCA.Business\GCA.Business.vbproj", "{09F6DFAA-50BE-4444-BD0B-AEF1029CFFD6}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Testing", "Testing\Testing.vbproj", "{ED2FB418-47D7-4272-87A0-E3E6F5C7EBB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{09F6DFAA-50BE-4444-BD0B-AEF1029CFFD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09F6DFAA-50BE-4444-BD0B-AEF1029CFFD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09F6DFAA-50BE-4444-BD0B-AEF1029CFFD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2FB418-47D7-4272-87A0-E3E6F5C7EBB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2FB418-47D7-4272-87A0-E3E6F5C7EBB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2FB418-47D7-4272-87A0-E3E6F5C7EBB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2FB418-47D7-4272-87A0-E3E6F5C7EBB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
