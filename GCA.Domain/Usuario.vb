@@ -1,134 +1,107 @@
 ﻿Public Class Usuario
-    Protected m_codigo As String
-    Protected m_contraseña As String
-    Protected m_dni As Integer
-    Protected m_nombre As String
-    Protected m_primerApellido As String
-    Protected m_segundoApellido As String
-    Protected m_email As String
-    Protected m_esSupervisor As Boolean
-    Protected m_oficina As Oficina
+    Protected u_codigo As String
+    Protected u_contraseña As String
+    Protected u_dni As Integer
+    Protected u_nombre As String
+    Protected u_primerApellido As String
+    Protected u_segundoApellido As String
+    Protected u_email As String
 
 
 
     Public Sub New()
-        Me.m_codigo = ""
-        Me.m_contraseña = ""
-        Me.m_dni = 0
-        Me.m_nombre = ""
-        Me.m_primerApellido = ""
-        Me.m_segundoApellido = ""
-        Me.m_email = ""
-        Me.m_esSupervisor = False
-        Me.m_oficina = New Oficina()
+        Me.u_codigo = ""
+        Me.u_contraseña = ""
+        Me.u_dni = 0
+        Me.u_nombre = ""
+        Me.u_primerApellido = ""
+        Me.u_segundoApellido = ""
+        Me.u_email = ""
 
     End Sub
 
-    Public Sub New(codigo As String, contraseña As String, dni As Integer, nombre As String, primerApellido As String, segundoApellido As String, email As String, esSupervisor As Boolean,
-                   oficina As Oficina)
-        Me.m_codigo = codigo
-        Me.m_contraseña = contraseña
-        Me.m_dni = dni
-        Me.m_nombre = nombre
-        Me.m_primerApellido = primerApellido
-        Me.m_segundoApellido = segundoApellido
-        Me.m_email = email
-        Me.m_esSupervisor = esSupervisor
-        Me.m_oficina = oficina
+    Public Sub New(codigo As String, contraseña As String, dni As Integer, nombre As String, primerApellido As String, segundoApellido As String, email As String)
+        Me.u_codigo = codigo
+        Me.u_contraseña = contraseña
+        Me.u_dni = dni
+        Me.u_nombre = nombre
+        Me.u_primerApellido = primerApellido
+        Me.u_segundoApellido = segundoApellido
+        Me.u_email = email
 
     End Sub
 
 
     Public Property Codigo() As Integer
         Get
-            Return m_codigo
+            Return u_codigo
 
         End Get
 
         Set
-            m_codigo = Value
+            u_codigo = Value
         End Set
     End Property
 
     Public Property Contraseña() As String
         Get
-            Return m_contraseña
+            Return u_contraseña
         End Get
 
         Set
-            m_contraseña = Value
+            u_contraseña = Value
         End Set
     End Property
 
     Public Property DNI() As String
         Get
-            Return m_dni
+            Return u_dni
 
         End Get
 
         Set
-            m_dni = Value
+            u_dni = Value
         End Set
     End Property
 
     Public Property Nombre() As String
         Get
-            Return m_nombre
+            Return u_nombre
         End Get
 
         Set
-            m_nombre = Value
+            u_nombre = Value
         End Set
     End Property
 
     Public Property PrimerApellido() As String
         Get
-            Return m_primerApellido
+            Return u_primerApellido
 
         End Get
 
         Set
-            m_primerApellido = Value
+            u_primerApellido = Value
         End Set
     End Property
 
     Public Property SegundoApellido() As String
         Get
-            Return m_segundoApellido
+            Return u_segundoApellido
         End Get
 
         Set
-            m_segundoApellido = Value
+            u_segundoApellido = Value
         End Set
     End Property
 
     Public Property Email() As String
         Get
-            Return m_email
+            Return u_email
         End Get
 
         Set
-            m_email = Value
-        End Set
-    End Property
-
-    Public Property EsSupervisor() As Boolean
-        Get
-            Return m_esSupervisor
-        End Get
-
-        Set
-            m_esSupervisor = Value
-        End Set
-    End Property
-
-    Public Property Oficina() As Oficina
-        Get
-            Return m_oficina
-        End Get
-
-        Set
-            m_oficina = Value
+            u_email = Value
         End Set
     End Property
 

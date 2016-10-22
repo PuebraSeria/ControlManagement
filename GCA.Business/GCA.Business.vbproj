@@ -80,7 +80,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="OficinaBusiness.vb" />
-    <Compile Include="UsuarioBusiness.vb" />
+    <Compile Include="JefeOficinaBusiness.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocControl.vb" />
+    <Compile Include="JefeOficina.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -80,6 +81,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Oficina.vb" />
+    <Compile Include="Supervisor.vb" />
     <Compile Include="Usuario.vb" />
   </ItemGroup>
   <ItemGroup>
