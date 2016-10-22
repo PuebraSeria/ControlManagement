@@ -101,4 +101,34 @@ Public Class OficinaDA
 
         Return respuesta
     End Function
+    'Función que le asigna controles a una oficina
+    Public Function asignarControl(codigoControl As Integer, codigoOficina As Integer, elimina As Integer) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_AsignarOficina_Control"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoC", codigoControl))
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
+        cmdInsert.Parameters.Add(New SqlParameter("@elimina", elimina))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
 End Class
