@@ -23,7 +23,7 @@ Public Class JefeOficinaBusiness
 
     End Function
 
-    Public Function obtenerJefeOficinaCodigo(codigo As String) As Usuario
+    Public Function obtenerJefeOficinaCodigo(codigo As String) As JefeOficina
         Return Me.JefeOficinaDA.obtenerJefeOficinaCodigo(codigo)
 
     End Function

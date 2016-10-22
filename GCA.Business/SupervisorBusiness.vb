@@ -10,20 +10,20 @@ Public Class SupervisorBusiness
         Me.m_SupervisorDA = New SupervisorDA(Me.ConexionString)
     End Sub
 
-    Public Function insertarJefeOficina(supervisor As Supervisor) As Integer
+    Public Function insertarSupervisor(supervisor As Supervisor) As Integer
         Return Me.SupervisorDA.insertarSupervisor(supervisor)
     End Function
 
-    Public Function actualizarUsuario(supervisor As Supervisor) As Integer
+    Public Function actualizarSupervisor(supervisor As Supervisor) As Integer
         Return Me.SupervisorDA.actualizarSupervisor(supervisor)
     End Function
 
-    Public Function eliminarJefeOficina(codigo As String) As Integer
+    Public Function eliminarSupervisor(codigo As String) As Integer
         Return Me.SupervisorDA.eliminarSupervisor(codigo)
 
     End Function
 
-    Public Function obtenerJefeOficinaCodigo(codigo As String) As Usuario
+    Public Function obtenerSupervisorCodigo(codigo As String) As Supervisor
         Return Me.SupervisorDA.obtenerSupervisorCodigo(codigo)
 
     End Function
