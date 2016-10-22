@@ -132,7 +132,7 @@ Public Class JefeOficinaDA
             jefe.Email = currentRow("TC_Email_Usuario").ToString()
 
             Dim ofDA As OficinaDA = New OficinaDA(Me.connectionString)
-            'jefe.Oficina = ofDA.obtenerOficinaCodigo(currentRow("TC_Email_Usuario").ToString())
+            jefe.Oficina = ofDA.obtenerOficinaCodigo(currentRow("TC_CodOficina_JefeOficina").ToString())
         Next
         Return jefe
     End Function

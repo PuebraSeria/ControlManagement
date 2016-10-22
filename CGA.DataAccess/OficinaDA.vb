@@ -131,4 +131,32 @@ Public Class OficinaDA
 
         Return respuesta
     End Function
+
+    Public Function obtenerOficinaCodigo(codigo As String) As Oficina
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim query As String = "select * from TOficina where TC_Codigo_Oficina = '" + codigo + "'"
+
+        Dim sqlAdpater As New SqlDataAdapter()
+        sqlAdpater.SelectCommand = New SqlCommand()
+        sqlAdpater.SelectCommand.CommandText = query
+        sqlAdpater.SelectCommand.Connection = sqlConn
+
+        Dim dsOficina As New DataSet()
+
+        sqlAdpater.Fill(dsOficina, "TOficina")
+
+        sqlAdpater.SelectCommand.Connection.Close()
+
+        Dim dataRowCollection As DataRowCollection = dsOficina.Tables("TOficina").Rows
+        Dim oficina As Oficina = New Oficina()
+
+
+        For Each currentRow As DataRow In dataRowCollection
+            oficina.Codigo = currentRow("TC_Codigo_Oficina").ToString()
+            oficina.Nombre = currentRow("TC_Nombre_Oficina").ToString()
+
+        Next
+        Return oficina
+    End Function
 End Class
