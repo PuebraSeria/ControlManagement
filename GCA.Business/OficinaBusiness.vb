@@ -26,4 +26,9 @@ Public Class OficinaBusiness
     Public Function eliminarOficina(codigo As Integer) As Integer
         Return Me.oficinaDA.eliminarOficina(codigo)
     End Function
+
+    'Función que le asigna controles a una oficina
+    Public Function asignarControl(codigoControl As Integer, codigoOficina As Integer, elimina As Integer) As Integer
+        Return Me.oficinaDA.asignarControl(codigoControl, codigoOficina, elimina)
+    End Function
 End Class
