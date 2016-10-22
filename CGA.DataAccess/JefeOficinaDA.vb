@@ -38,7 +38,7 @@ Public Class JefeOficinaDA
         cmdInsert.ExecuteNonQuery()
 
 
-        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@idClient").Value.ToString())
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
 
         cmdInsert.Connection.Close()
 
@@ -130,7 +130,8 @@ Public Class JefeOficinaDA
             jefe.PrimerApellido = currentRow("TC_PrimerApellido_Usuario").ToString()
             jefe.SegundoApellido = currentRow("TC_SegundoApellido_Usuario").ToString()
             jefe.Email = currentRow("TC_Email_Usuario").ToString()
-            Dim ofDA As OficinaDA = New OficinaDA()
+
+            Dim ofDA As OficinaDA = New OficinaDA(Me.connectionString)
             'jefe.Oficina = ofDA.obtenerOficinaCodigo(currentRow("TC_Email_Usuario").ToString())
         Next
         Return jefe

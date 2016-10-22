@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="OficinaBusiness.vb" />
     <Compile Include="JefeOficinaBusiness.vb" />
+    <Compile Include="SupervisorBusiness.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
