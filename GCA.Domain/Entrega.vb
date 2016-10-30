@@ -5,6 +5,7 @@
     Protected tc_CodDocControl_TEntrega As String
     Protected tf_FechaEntrega_TEntrega As String
     Protected tc_Adjunto_TEntrega As String
+    Protected tn_Periodo_TEntrega As Integer
 
 
     Public Sub New()
@@ -12,13 +13,17 @@
         Me.tc_CodDocControl_TEntrega = ""
         Me.tf_FechaEntrega_TEntrega = ""
         Me.tc_Adjunto_TEntrega = ""
+        Me.tn_Periodo_TEntrega = ""
+
 
     End Sub
 
-    Public Sub New(codigo_oficina As String, codigo_control As String, adjunto As String)
+    Public Sub New(codigo_oficina As String, codigo_control As String, adjunto As String, periodo As Integer)
         Me.tc_CodOficina_TEntrega = codigo_oficina
         Me.tc_CodDocControl_TEntrega = codigo_control
         Me.tc_Adjunto_TEntrega = adjunto
+        Me.tn_Periodo_TEntrega = periodo
+
 
     End Sub
 
@@ -64,6 +69,17 @@
 
         Set
             tc_CodDocControl_TEntrega = Value
+        End Set
+    End Property
+
+    Public Property Periodo_Entrega() As String
+        Get
+            Return tn_Periodo_TEntrega
+
+        End Get
+
+        Set
+            tn_Periodo_TEntrega = Value
         End Set
     End Property
 

@@ -159,4 +159,25 @@ Public Class OficinaDA
         Next
         Return oficina
     End Function
+
+    Public Function obtenerOficinas() As DataSet
+
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim query As String = "select * from TOficina order by(TC_Nombre_Oficina) ASC "
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsBrand As New DataSet()
+
+        sqlAdpaterBank.Fill(dsBrand, "TOficina")
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsBrand
+    End Function
+
 End Class

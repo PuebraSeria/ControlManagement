@@ -26,6 +26,7 @@ Public Class DocControlDA
         cmdControl.Parameters.Add(New SqlParameter("@nombre", control.Nombre_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", control.FechaInicio_DocControl))
+        cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", control.FechaFinal_DocControl))
 
         cmdControl.Connection.Open()
         Dim respuesta As Integer = cmdControl.ExecuteNonQuery()
@@ -50,6 +51,7 @@ Public Class DocControlDA
         cmdControl.Parameters.Add(New SqlParameter("@nombre", control.Nombre_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", control.FechaInicio_DocControl))
+        cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", control.FechaFinal_DocControl))
 
         cmdControl.Connection.Open()
         Dim respuesta As Integer = cmdControl.ExecuteNonQuery()

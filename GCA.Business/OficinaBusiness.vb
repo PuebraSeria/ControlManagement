@@ -35,4 +35,8 @@ Public Class OficinaBusiness
     Public Function obtenerOficinaCodigo(codigo As String) As Oficina
         Return Me.oficinaDA.obtenerOficinaCodigo(codigo)
     End Function
+
+    Public Function obtenerOficinas() As DataSet
+        Return Me.oficinaDA.obtenerOficinas()
+    End Function
 End Class
