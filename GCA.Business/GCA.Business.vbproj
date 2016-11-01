@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="OficinaBusiness.vb" />
     <Compile Include="JefeOficinaBusiness.vb" />
+    <Compile Include="PeriodoBusiness.vb" />
     <Compile Include="SupervisorBusiness.vb" />
   </ItemGroup>
   <ItemGroup>

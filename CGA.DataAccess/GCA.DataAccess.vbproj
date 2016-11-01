@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="OficinaDA.vb" />
     <Compile Include="JefeOficinaDA.vb" />
+    <Compile Include="PeriodoDA.vb" />
     <Compile Include="SupervisorDA.vb" />
   </ItemGroup>
   <ItemGroup>

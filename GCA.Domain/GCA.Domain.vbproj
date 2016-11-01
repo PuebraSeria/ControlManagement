@@ -82,6 +82,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Oficina.vb" />
+    <Compile Include="Periodo.vb" />
     <Compile Include="Supervisor.vb" />
     <Compile Include="Usuario.vb" />
   </ItemGroup>

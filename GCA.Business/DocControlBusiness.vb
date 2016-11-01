@@ -32,5 +32,8 @@ Public Class DocControlBusiness
 
     End Function
 
+    Public Function existeControl(id As Integer) As Integer
+        Return Me.control.existeControl(id)
+    End Function
 
 End Class

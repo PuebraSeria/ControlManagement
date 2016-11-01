@@ -153,7 +153,6 @@ Public Class JefeOficinaDA
         cmdInsert.Connection.Open()
         cmdInsert.ExecuteNonQuery()
 
-
         Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
 
         cmdInsert.Connection.Close()

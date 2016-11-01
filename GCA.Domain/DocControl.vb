@@ -1,7 +1,7 @@
 ﻿Public Class DocControl
     Protected tc_Codigo_DocControl As String
     Protected tc_Nombre_DocControl As String
-    Protected tn_Periocidad_DocControl As Integer
+    Protected tn_Periocidad_DocControl As Periodo
     Protected tf_FechaInicio_DocControl As String
     Protected tf_FechaFinal_DocControl As String
 
@@ -9,22 +9,22 @@
     Public Sub New()
         Me.tc_Codigo_DocControl = ""
         Me.tc_Nombre_DocControl = ""
-        Me.tn_Periocidad_DocControl = 0
+        Me.tn_Periocidad_DocControl = New Periodo()
         Me.tf_FechaInicio_DocControl = ""
         Me.tf_FechaFinal_DocControl = ""
 
     End Sub
 
-    Public Sub New(codigo As String, nombre As String, cantidad As Integer, fecha_inicio As String, fecha_final As String)
+    Public Sub New(codigo As String, nombre As String, periodo As Periodo, fecha_inicio As String, fecha_final As String)
         Me.tc_Codigo_DocControl = codigo
         Me.tc_Nombre_DocControl = nombre
-        Me.tn_Periocidad_DocControl = cantidad
+        Me.tn_Periocidad_DocControl = periodo
         Me.tf_FechaInicio_DocControl = fecha_inicio
         Me.tf_FechaFinal_DocControl = fecha_final
     End Sub
 
 
-    Public Property Periocidad_DocControl() As Integer
+    Public Property Periocidad_DocControl() As Periodo
         Get
             Return tn_Periocidad_DocControl
 
