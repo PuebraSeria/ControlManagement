@@ -136,4 +136,28 @@ Public Class JefeOficinaDA
         Next
         Return jefe
     End Function
+
+    Public Function existeJefeOficina(codigo As String) As Integer
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim sqlStoredProcedure As String = "PA_ExisteJefeOficina"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, sqlConn)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        cmdInsert.Connection.Close()
+
+        Return answer
+    End Function
 End Class

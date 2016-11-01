@@ -28,6 +28,10 @@ Public Class SupervisorBusiness
 
     End Function
 
+    Public Function existeSupervisor(codigo As String) As Integer
+        Return Me.SupervisorDA.existeSupervisor(codigo)
+    End Function
+
 
     Public Property ConexionString() As String
         Get

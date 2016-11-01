@@ -28,6 +28,10 @@ Public Class JefeOficinaBusiness
 
     End Function
 
+    Public Function existeJefeOficina(codigo As String) As Integer
+        Return Me.JefeOficinaDA.existeJefeOficina(codigo)
+    End Function
+
 
     Public Property ConexionString() As String
         Get
