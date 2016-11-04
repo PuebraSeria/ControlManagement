@@ -23,13 +23,13 @@ Public Class OficinaBusiness
     End Function
 
     'Función que nos permtie eliminar oficinas
-    Public Function eliminarOficina(codigo As Integer) As Integer
+    Public Function eliminarOficina(codigo As String) As Integer
         Return Me.oficinaDA.eliminarOficina(codigo)
     End Function
 
     'Función que le asigna controles a una oficina
-    Public Function asignarControl(codigoControl As Integer, codigoOficina As Integer, elimina As Integer) As Integer
-        Return Me.oficinaDA.asignarControl(codigoControl, codigoOficina, elimina)
+    Public Function asignarControl(codigoControl As String, codigoOficina As String) As Integer
+        Return Me.oficinaDA.asignarControl(codigoControl, codigoOficina)
     End Function
     'Función que retorna una oficina según en código dado 
     Public Function obtenerOficinaCodigo(codigo As String) As Oficina

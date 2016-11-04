@@ -26,14 +26,18 @@ Public Class DocControlBusiness
 
     End Function
 
-    Public Function eliminarControl(codigo As Integer) As Integer
+    Public Function eliminarControl(codigo As String) As Integer
 
         Return Me.control.eliminarControl(codigo)
 
     End Function
 
-    Public Function existeControl(id As Integer) As Integer
-        Return Me.control.existeControl(id)
+    Public Function existeControl(codigo As String) As Integer
+        Return Me.control.existeControl(codigo)
+    End Function
+
+    Public Function obtenerControles() As DataSet
+        Return Me.control.obtenerControles()
     End Function
 
 End Class

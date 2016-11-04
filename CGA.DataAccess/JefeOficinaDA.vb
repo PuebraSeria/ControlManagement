@@ -78,7 +78,7 @@ Public Class JefeOficinaDA
         Return answer
     End Function
 
-    Public Function eliminarJefeOficina(codigo As Integer) As Integer
+    Public Function eliminarJefeOficina(codigo As String) As Integer
         Dim connection As New SqlConnection(Me.connectionString)
 
         Dim sqlStoredProcedure As String = "PA_EliminarJefeOficina"
@@ -146,7 +146,7 @@ Public Class JefeOficinaDA
         cmdInsert.CommandType = CommandType.StoredProcedure
 
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
