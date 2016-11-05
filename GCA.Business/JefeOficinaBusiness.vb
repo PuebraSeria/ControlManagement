@@ -14,7 +14,7 @@ Public Class JefeOficinaBusiness
         Return Me.JefeOficinaDA.insertarJefeOficina(jefe)
     End Function
 
-    Public Function actualizarUsuario(jefe As JefeOficina) As Integer
+    Public Function actualizarJefeOficina(jefe As JefeOficina) As Integer
         Return Me.JefeOficinaDA.actualizarJefeOficina(jefe)
     End Function
 
@@ -32,6 +32,9 @@ Public Class JefeOficinaBusiness
         Return Me.JefeOficinaDA.existeJefeOficina(codigo)
     End Function
 
+    Public Function obtenerJefes() As DataSet
+        Return Me.JefeOficinaDA.obtenerJefes()
+    End Function
 
     Public Property ConexionString() As String
         Get

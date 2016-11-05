@@ -53,7 +53,7 @@
         End Set
     End Property
 
-    Public Property DNI() As String
+    Public Property DNI() As Integer
         Get
             Return u_dni
 

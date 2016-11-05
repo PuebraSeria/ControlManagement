@@ -30,7 +30,7 @@ Public Class JefeOficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@apellido2", jefe.SegundoApellido))
         cmdInsert.Parameters.Add(New SqlParameter("@email", jefe.Email))
         cmdInsert.Parameters.Add(New SqlParameter("@codOficina", jefe.Oficina.Codigo))
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -38,11 +38,11 @@ Public Class JefeOficinaDA
         cmdInsert.ExecuteNonQuery()
 
 
-        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
 
         cmdInsert.Connection.Close()
 
-        Return answer
+        Return respuesta
     End Function
 
     Public Function actualizarJefeOficina(jefe As JefeOficina) As Integer
@@ -63,7 +63,7 @@ Public Class JefeOficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@email", jefe.Email))
         cmdInsert.Parameters.Add(New SqlParameter("@codOficina", jefe.Oficina.Codigo))
 
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -87,7 +87,7 @@ Public Class JefeOficinaDA
         cmdInsert.CommandType = CommandType.StoredProcedure
 
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -159,4 +159,26 @@ Public Class JefeOficinaDA
 
         Return answer
     End Function
+
+        Public Function obtenerJefes() As DataSet
+
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT TC_Codigo_JefeOficina, TC_DNI_JefeOficina, TC_Contrasenna_JefeOficina, TC_PrimerApellido_JefeOficina, TC_Nombre_JefeOficina, 
+        TC_SegundoApellido_JefeOficina, TC_Email_JefeOficina, TC_Nombre_Oficina,TC_CodOficina_JefeOficina FROM TJefeOficina INNER JOIN  TOficina ON TC_CodOficina_JefeOficina =  TC_Codigo_Oficina "
+
+        Dim sqlAdpater As New SqlDataAdapter()
+        sqlAdpater.SelectCommand = New SqlCommand()
+        sqlAdpater.SelectCommand.CommandText = query
+        sqlAdpater.SelectCommand.Connection = sqlConn
+
+        Dim dsJefes As New DataSet()
+
+        sqlAdpater.Fill(dsJefes)
+
+        sqlAdpater.SelectCommand.Connection.Close()
+
+        Return dsJefes
+    End Function
+
 End Class
