@@ -40,6 +40,10 @@ Public Class OficinaBusiness
         Return Me.oficinaDA.obtenerOficinas()
     End Function
 
+    Public Function obtenerControlesOficina(codOficina As String) As DataSet
+        Return Me.oficinaDA.obtenerControlesOficina(codOficina)
+    End Function
+
 
 
 End Class
