@@ -34,7 +34,7 @@ Public Class PeriodoDA
     Public Function obtenerPeriodoCodigo(id As Integer) As Periodo
         Dim sqlConn As New SqlConnection(Me.connection)
 
-        Dim query As String = "select * from TPeriodo where TN_Id_Periodo = '" + id + "'"
+        Dim query As String = "select * from TPeriodo where TN_Id_Periodo = " + id.ToString
 
         Dim sqlAdpater As New SqlDataAdapter()
         sqlAdpater.SelectCommand = New SqlCommand()

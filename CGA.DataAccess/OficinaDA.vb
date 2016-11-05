@@ -74,7 +74,7 @@ Public Class OficinaDA
     End Function
 
     'Función que nos permtie eliminar oficinas
-    Public Function eliminarOficina(codigo As Integer) As Integer
+    Public Function eliminarOficina(codigo As String) As Integer
         Dim connectionSQL As New SqlConnection(Me.connection)
         Dim sqlStoredProcedure As String = "PA_EliminarOficina"
         Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
@@ -102,7 +102,7 @@ Public Class OficinaDA
         Return respuesta
     End Function
     'Función que le asigna controles a una oficina
-    Public Function asignarControl(codigoControl As Integer, codigoOficina As Integer, elimina As Integer) As Integer
+    Public Function asignarControl(codigoControl As String, codigoOficina As String) As Integer
         Dim connectionSQL As New SqlConnection(Me.connection)
         Dim sqlStoredProcedure As String = "PA_AsignarOficina_Control"
         Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
@@ -112,7 +112,6 @@ Public Class OficinaDA
         'Variables que recibe
         cmdInsert.Parameters.Add(New SqlParameter("@codigoC", codigoControl))
         cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
-        cmdInsert.Parameters.Add(New SqlParameter("@elimina", elimina))
 
         'Variables que retorna
         Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
