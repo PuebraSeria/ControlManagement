@@ -19,7 +19,7 @@ Public Class OficinaBusiness
 
     'Método que nos permite actualizar una oficina
     Public Function actualizarOficina(oficina As Oficina) As Integer
-        Return Me.oficinaDA.insertarOficina(oficina)
+        Return Me.oficinaDA.actualizarOficina(oficina)
     End Function
 
     'Función que nos permtie eliminar oficinas

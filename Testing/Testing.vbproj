@@ -121,6 +121,10 @@
       <Project>{88b04baf-05f7-4c6b-978e-7ac65a0eed9e}</Project>
       <Name>GCA.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GCA.Business\GCA.Business.vbproj">
+      <Project>{09F6DFAA-50BE-4444-BD0B-AEF1029CFFD6}</Project>
+      <Name>GCA.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GCA.Domain\GCA.Domain.vbproj">
       <Project>{1835687a-2eb9-4308-95f7-57dc713d977c}</Project>
       <Name>GCA.Domain</Name>
