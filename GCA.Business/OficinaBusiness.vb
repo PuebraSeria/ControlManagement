@@ -44,6 +44,8 @@ Public Class OficinaBusiness
         Return Me.oficinaDA.obtenerControlesOficina(codOficina)
     End Function
 
-
+    Public Function existeOficina(codigo As String) As Integer
+        Return Me.oficinaDA.existeOficina(codigo)
+    End Function
 
 End Class

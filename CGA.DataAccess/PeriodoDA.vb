@@ -11,6 +11,96 @@ Public Class PeriodoDA
         Me.connection = connection
     End Sub
 
+    Public Function insertarPeriodo(periodo As Periodo) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_InsertarPeriodo"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+
+        cmdInsert.Parameters.Add(New SqlParameter("@nombre", periodo.Nombre))
+        cmdInsert.Parameters.Add(New SqlParameter("@dias", periodo.Dias))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
+
+    'Método que nos permite actualizar un periodo
+    Public Function actualizarPeriodo(periodo As Periodo) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_ActualizarPeriodo"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+        cmdInsert.Parameters.Add(New SqlParameter("@id", periodo.Id))
+        cmdInsert.Parameters.Add(New SqlParameter("@nombre", periodo.Nombre))
+        cmdInsert.Parameters.Add(New SqlParameter("@dias", periodo.Dias))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
+
+    'Función que nos permtie eliminar periodo
+    Public Function eliminarPeriodo(id As Integer) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_EliminarPeriodo"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+        cmdInsert.Parameters.Add(New SqlParameter("@id", id))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
+
     Public Function obtenerPeriodos() As DataSet
 
         Dim sqlConn As New SqlConnection(Me.connection)
@@ -59,5 +149,29 @@ Public Class PeriodoDA
         Return periodo
     End Function
 
+
+    Public Function existePeriodo(id As Integer) As Integer
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim sqlStoredProcedure As String = "PA_ExistePeriodo"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, sqlConn)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        cmdInsert.Parameters.Add(New SqlParameter("@id", id))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        cmdInsert.Connection.Close()
+
+        Return answer
+    End Function
 
 End Class

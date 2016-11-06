@@ -26,7 +26,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@nombre", oficina.Nombre))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -56,7 +56,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@nombre", oficina.Nombre))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -85,7 +85,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -114,7 +114,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -201,6 +201,30 @@ Public Class OficinaDA
         sqlAdpaterBank.SelectCommand.Connection.Close()
 
         Return dsControl
+    End Function
+
+    Public Function existeOficina(codigo As String) As Integer
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim sqlStoredProcedure As String = "PA_ExisteOficina"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, sqlConn)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        cmdInsert.Connection.Close()
+
+        Return answer
     End Function
 
 End Class
