@@ -203,4 +203,32 @@ Public Class OficinaDA
         Return dsControl
     End Function
 
+    Public Function obtenerFechaAsignacionControl() As String
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim query As String = " select TF_FechaAsigna_Ofn_X_DocCtrl from TOfn_X_DocCtrl where" +
+                                "TC_CodOficina_Ofn_X_DocCtrl = 1 And TC_CodDocControl_Ofn_X_DocCtrl = 1"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsFecha As New DataSet()
+
+        sqlAdpaterBank.Fill(dsFecha)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Dim fechaAsignacion As String = ""
+
+        Dim dataRowCollection As DataRowCollection = dsFecha.Tables(0).Rows
+        For Each currentRow As DataRow In dataRowCollection
+            fechaAsignacion = currentRow(0).ToString()
+        Next
+
+        Return fechaAsignacion
+
+    End Function
+
 End Class

@@ -16,4 +16,9 @@ Public Class PeriodoBusiness
     Public Function obtenerPeriodoCodigo(id As Integer) As Periodo
         Return periodoDA.obtenerPeriodoCodigo(id)
     End Function
+
+    Public Function obtenerPeriodoEntregarTrim(fechaAsignacion As String) As String
+
+    End Function
+
 End Class

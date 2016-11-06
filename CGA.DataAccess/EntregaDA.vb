@@ -35,4 +35,25 @@ Public Class EntregaDA
 
     End Function
 
+    Public Function obtenerUltimaEntregaControlOficina(codOficina As String, codControl As String) As DataSet
+
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "select TN_Periodo_TEntrega from TEntrega where TC_CodOficina_TEntrega = " + codOficina +
+                                "AND TC_CodDocControl_TEntrega =" + codControl + "order by TF_FechaEntrega_TEntrega DESC"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsControl As New DataSet()
+
+        sqlAdpaterBank.Fill(dsControl)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsControl
+    End Function
+
 End Class

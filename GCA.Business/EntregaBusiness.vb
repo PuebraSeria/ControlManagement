@@ -12,9 +12,11 @@ Public Class EntregaBusiness
     End Sub
 
     Public Function crearEntrega(entrega As Entrega) As Integer
-
         Return Me.entrega.crearEntrega(entrega)
+    End Function
 
+    Public Function obtenerUltimaEntregaControlOficina(codOficina As String, codControl As String) As DataSet
+        Return Me.obtenerUltimaEntregaControlOficina(codOficina, codControl)
     End Function
 
 End Class
