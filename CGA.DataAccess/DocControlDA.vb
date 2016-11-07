@@ -24,13 +24,17 @@ Public Class DocControlDA
 
         cmdControl.Parameters.Add(New SqlParameter("@codigo", control.Codigo_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@nombre", control.Nombre_DocControl))
-        cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl.Id))
         If (Not String.IsNullOrEmpty(control.FechaFinal_DocControl) Or Not String.IsNullOrEmpty(control.FechaInicio_DocControl)) Then
             cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", control.FechaInicio_DocControl))
             cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", control.FechaFinal_DocControl))
         Else
             cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", DirectCast(DBNull.Value, Object)))
             cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", DirectCast(DBNull.Value, Object)))
+        End If
+        If (control.Periocidad_DocControl.Id = -1) Then
+            cmdControl.Parameters.Add(New SqlParameter("@periocidad", DirectCast(DBNull.Value, Object)))
+        Else
+            cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl.Id))
         End If
         Dim parameter As New SqlParameter("@estado", SqlDbType.Int)
         parameter.Direction = ParameterDirection.Output
@@ -136,7 +140,7 @@ Public Class DocControlDA
         Dim sqlConn As New SqlConnection(Me.connectionString)
 
         Dim query As String = "select TC_Codigo_DocControl,TC_Nombre_DocControl,	TN_Periocidad_DocControl,
-         TC_Nombre_Periodo,	TF_FechaInicio_DocControl,TF_FechaFinal_DocControl from TDocControl Inner Join TPeriodo On TN_Periocidad_DocControl = TN_Id_Periodo "
+         TC_Nombre_Periodo,	TF_FechaInicio_DocControl,TF_FechaFinal_DocControl from TDocControl Left Join TPeriodo On TN_Periocidad_DocControl = TN_Id_Periodo "
 
         Dim sqlAdpater As New SqlDataAdapter()
         sqlAdpater.SelectCommand = New SqlCommand()
