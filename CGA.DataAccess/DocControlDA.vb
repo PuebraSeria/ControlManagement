@@ -62,13 +62,17 @@ Public Class DocControlDA
 
         cmdControl.Parameters.Add(New SqlParameter("@codigo", control.Codigo_DocControl))
         cmdControl.Parameters.Add(New SqlParameter("@nombre", control.Nombre_DocControl))
-        cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl.Id))
         If (Not String.IsNullOrEmpty(control.FechaFinal_DocControl) Or Not String.IsNullOrEmpty(control.FechaInicio_DocControl)) Then
             cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", control.FechaInicio_DocControl))
             cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", control.FechaFinal_DocControl))
         Else
             cmdControl.Parameters.Add(New SqlParameter("@fechaInicio", DirectCast(DBNull.Value, Object)))
             cmdControl.Parameters.Add(New SqlParameter("@fechaFinal", DirectCast(DBNull.Value, Object)))
+        End If
+        If (control.Periocidad_DocControl.Id = -1) Then
+            cmdControl.Parameters.Add(New SqlParameter("@periocidad", DirectCast(DBNull.Value, Object)))
+        Else
+            cmdControl.Parameters.Add(New SqlParameter("@periocidad", control.Periocidad_DocControl.Id))
         End If
         Dim parameter As New SqlParameter("@estado", SqlDbType.Int)
         parameter.Direction = ParameterDirection.Output
