@@ -40,4 +40,8 @@ Public Class DocControlBusiness
         Return Me.control.obtenerControles()
     End Function
 
+    Public Function obtenerInformacionControlesAsignados() As String
+        Return Me.control.obtenerInformacionControlesAsignados()
+    End Function
+
 End Class
