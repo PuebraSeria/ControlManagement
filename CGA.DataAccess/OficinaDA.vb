@@ -197,7 +197,6 @@ Public Class OficinaDA
         Dim dsControl As New DataSet()
 
         sqlAdpaterBank.Fill(dsControl)
-
         sqlAdpaterBank.SelectCommand.Connection.Close()
 
         Return dsControl
