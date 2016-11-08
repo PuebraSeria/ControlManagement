@@ -23,11 +23,13 @@ Imports GCA.Business
         '    Console.WriteLine(pd.ToString())
         'Next
         'Console.ReadLine()
-        Dim oficina As New GCA.Domain.Oficina
-        oficina = New Oficina
-        oficina.Codigo = "7"
-        oficina.Nombre = "Oficina de r"
-        Console.Write(da.actualizarOficina(oficina))
+        'Dim oficina As New GCA.Domain.Oficina
+        'oficina = New Oficina
+        'oficina.Codigo = "7"
+        'oficina.Nombre = "Oficina de r"
+        'Console.Write(da.actualizarOficina(oficina))
+        Dim control As New GCA.Business.DocControlBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        Console.Write(control.obtenerPorcentajeFecha("08-11-2016,7"))
 
     End Sub
 
