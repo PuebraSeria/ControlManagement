@@ -120,7 +120,7 @@ Public Class DocControlBusiness
                     'mes de asignacion < mesInicioPeriodo
                     If Int32.Parse(partesFecha(1)) >= mesInicioPeriodo AndAlso Int32.Parse(partesFecha(1)) <= mesFinalPeriodo Then
                         fechaInicio = New DateTime(annoActual, mesInicioPeriodo, 1)
-                        fechaEntrega = DateAdd(DateInterval.Month, 1, fechaInicio)
+                        fechaEntrega = DateAdd(DateInterval.Month, cantMeses, fechaInicio)
                         ts = fechaActual - fechaInicio
                         diferencia_dias = ts.Days
                         If diferencia_dias > cantDias Then
@@ -152,17 +152,17 @@ Public Class DocControlBusiness
                     porcentajeActual = obtenerCantidadPorcentaje(diferencia_dias, cantDias)
 
                     ''Si es por años
-                ElseIf cantDias > 360 Then
+                ElseIf cantDias >= 360 Then
                     Dim cantAnnos As Integer = cantDias / 360
                     Dim annAsignacion As Integer = Int32.Parse(partesFecha(2))
                     Dim annoFin As Integer = annAsignacion + (cantAnnos - 1)
                     If (annoFin > annAsignacion) Then
                         Dim fecha_Asignacion As New DateTime(annAsignacion, 1, 1)
-                        fechaEntrega = DateAdd(DateInterval.Year, 1, fecha_Asignacion)
+                        fechaEntrega = DateAdd(DateInterval.Year, cantAnnos, fecha_Asignacion)
                         ts = fechaActual - fecha_Asignacion
                     Else
                         Dim fecha_Asignacion As New DateTime(annoFin, 1, 1)
-                        fechaEntrega = DateAdd(DateInterval.Year, 1, fecha_Asignacion)
+                        fechaEntrega = DateAdd(DateInterval.Year, cantAnnos, fecha_Asignacion)
                         ts = fechaActual - fecha_Asignacion
                     End If
                     diferencia_dias = ts.Days
