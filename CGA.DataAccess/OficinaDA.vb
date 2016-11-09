@@ -216,7 +216,7 @@ Public Class OficinaDA
         Dim sqlConn As New SqlConnection(Me.connection)
 
         Dim query As String = "select TC_Codigo_DocControl, TC_Nombre_DocControl, TN_Periocidad_DocControl, TF_FechaInicio_DocControl,
-                                TF_FechaFinal_DocControl from TDocControl inner join TOfn_X_DocCtrl on
+                                TF_FechaFinal_DocControl,TF_FechaAsigna_Ofn_X_DocCtrl from TDocControl inner join TOfn_X_DocCtrl on
                                 TDocControl.TC_Codigo_DocControl = TOfn_X_DocCtrl.TC_CodDocControl_Ofn_X_DocCtrl
                                 where TOfn_X_DocCtrl.TC_CodOficina_Ofn_X_DocCtrl = " + codOficina
 
@@ -228,7 +228,6 @@ Public Class OficinaDA
         Dim dsControl As New DataSet()
 
         sqlAdpaterBank.Fill(dsControl)
-
         sqlAdpaterBank.SelectCommand.Connection.Close()
 
         Return dsControl
