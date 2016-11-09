@@ -102,9 +102,39 @@ Public Class OficinaDA
         Return respuesta
     End Function
     'Función que le asigna controles a una oficina
-    Public Function asignarControl(codigoControl As String, codigoOficina As String) As Integer
+    Public Function asignarControl(codigoControl As String, codigoOficina As String, fecha As String) As Integer
         Dim connectionSQL As New SqlConnection(Me.connection)
         Dim sqlStoredProcedure As String = "PA_AsignarOficina_Control"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoC", codigoControl))
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
+        cmdInsert.Parameters.Add(New SqlParameter("@fecha", fecha))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
+
+    Public Function desvincularControl(codigoControl As String, codigoOficina As String) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_DesvincularOficina_Control"
         Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
 
         cmdInsert.CommandType = CommandType.StoredProcedure
@@ -130,6 +160,7 @@ Public Class OficinaDA
 
         Return respuesta
     End Function
+
 
     Public Function obtenerOficinaCodigo(codigo As String) As Oficina
         Dim sqlConn As New SqlConnection(Me.connection)

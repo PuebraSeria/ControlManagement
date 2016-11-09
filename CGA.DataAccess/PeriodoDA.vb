@@ -144,6 +144,7 @@ Public Class PeriodoDA
         For Each currentRow As DataRow In dataRowCollection
             periodo.Id = currentRow("TN_Id_Periodo").ToString()
             periodo.Nombre = currentRow("TC_Nombre_Periodo").ToString()
+            periodo.Dias = Integer.Parse(currentRow("TN_Dias_Periodo").ToString)
 
         Next
         Return periodo

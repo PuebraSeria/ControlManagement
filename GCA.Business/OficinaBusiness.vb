@@ -28,8 +28,13 @@ Public Class OficinaBusiness
     End Function
 
     'Función que le asigna controles a una oficina
-    Public Function asignarControl(codigoControl As String, codigoOficina As String) As Integer
-        Return Me.oficinaDA.asignarControl(codigoControl, codigoOficina)
+    Public Function asignarControl(codigoControl As String, codigoOficina As String, fecha As String) As Integer
+        Return Me.oficinaDA.asignarControl(codigoControl, codigoOficina, fecha)
+    End Function
+
+    'Función que le desvincula controles a una oficina
+    Public Function desvincularControl(codigoControl As String, codigoOficina As String) As Integer
+        Return Me.oficinaDA.desvincularControl(codigoControl, codigoOficina)
     End Function
     'Función que retorna una oficina según en código dado 
     Public Function obtenerOficinaCodigo(codigo As String) As Oficina
