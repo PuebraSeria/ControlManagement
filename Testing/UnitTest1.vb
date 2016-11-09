@@ -29,7 +29,10 @@ Imports GCA.Business
         'oficina.Nombre = "Oficina de r"
         'Console.Write(da.actualizarOficina(oficina))
         Dim control As New GCA.Business.DocControlBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        Console.Write(control.obtenerPorcentajeFecha("08-11-2016,7"))
+        Dim periodoBusiness As New GCA.Business.PeriodoBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        Dim periodo = periodoBusiness.obtenerPeriodoCodigo(3)
+        Console.WriteLine(periodo.Dias)
+        'Console.Write(control.obtenerPorcentajeFecha("01-11-2016,90"))
 
     End Sub
 
