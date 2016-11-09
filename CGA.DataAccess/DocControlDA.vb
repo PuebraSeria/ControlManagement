@@ -7,7 +7,8 @@ Public Class DocControlDA
 
 
     Private connectionString As String
-
+    Private cantidadIncio As Integer = 0, cantidad75 As Integer = 0,
+        cantidad90 As Integer = 0, cantidad100 As Integer = 0, cantidadM100 As Integer = 0
 
     Public Sub New(connectionString As String)
         Me.connectionString = connectionString
@@ -211,8 +212,6 @@ Public Class DocControlDA
     Public Function obtenerCantidadPorcentajes(informacion As String) As String
 
         'Se obtiene el periodo actual del año
-        Dim cantidadIncio As Integer = 0, cantidad75 As Integer = 0,
-        cantidad90 As Integer = 0, cantidad100 As Integer = 0, cantidadM100 As Integer = 0
         Dim fechaActual As DateTime = DateTime.Now
         Dim fechaInicio As DateTime
         Dim ts As TimeSpan
