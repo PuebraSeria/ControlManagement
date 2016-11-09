@@ -102,9 +102,39 @@ Public Class OficinaDA
         Return respuesta
     End Function
     'Función que le asigna controles a una oficina
-    Public Function asignarControl(codigoControl As String, codigoOficina As String) As Integer
+    Public Function asignarControl(codigoControl As String, codigoOficina As String, fecha As String) As Integer
         Dim connectionSQL As New SqlConnection(Me.connection)
         Dim sqlStoredProcedure As String = "PA_AsignarOficina_Control"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        'Variables que recibe
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoC", codigoControl))
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
+        cmdInsert.Parameters.Add(New SqlParameter("@fecha", fecha))
+
+        'Variables que retorna
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        'Insertamos en la base
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+        'Guardamos la variable que retorna
+        Dim respuesta As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        'Cerramos la conexión
+        cmdInsert.Connection.Close()
+
+        Return respuesta
+    End Function
+
+    Public Function desvincularControl(codigoControl As String, codigoOficina As String) As Integer
+        Dim connectionSQL As New SqlConnection(Me.connection)
+        Dim sqlStoredProcedure As String = "PA_DesvincularOficina_Control"
         Dim cmdInsert As New SqlCommand(sqlStoredProcedure, connectionSQL)
 
         cmdInsert.CommandType = CommandType.StoredProcedure
@@ -130,6 +160,7 @@ Public Class OficinaDA
 
         Return respuesta
     End Function
+
 
     Public Function obtenerOficinaCodigo(codigo As String) As Oficina
         Dim sqlConn As New SqlConnection(Me.connection)
@@ -185,7 +216,7 @@ Public Class OficinaDA
         Dim sqlConn As New SqlConnection(Me.connection)
 
         Dim query As String = "select TC_Codigo_DocControl, TC_Nombre_DocControl, TN_Periocidad_DocControl, TF_FechaInicio_DocControl,
-                                TF_FechaFinal_DocControl from TDocControl inner join TOfn_X_DocCtrl on
+                                TF_FechaFinal_DocControl,TF_FechaAsigna_Ofn_X_DocCtrl from TDocControl inner join TOfn_X_DocCtrl on
                                 TDocControl.TC_Codigo_DocControl = TOfn_X_DocCtrl.TC_CodDocControl_Ofn_X_DocCtrl
                                 where TOfn_X_DocCtrl.TC_CodOficina_Ofn_X_DocCtrl = " + codOficina
 
@@ -197,7 +228,6 @@ Public Class OficinaDA
         Dim dsControl As New DataSet()
 
         sqlAdpaterBank.Fill(dsControl)
-
         sqlAdpaterBank.SelectCommand.Connection.Close()
 
         Return dsControl

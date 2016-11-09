@@ -121,6 +121,11 @@ Public Class PeriodoDA
         Return dsPeriodo
     End Function
 
+    ''' <summary>
+    ''' Función que nos pertmite obtener el periodo según el ID
+    ''' </summary>
+    ''' <param name="id">Corresponde al id que tiene el período</param>
+    ''' <returns>Periodo</returns>
     Public Function obtenerPeriodoCodigo(id As Integer) As Periodo
         Dim sqlConn As New SqlConnection(Me.connection)
 
@@ -145,11 +150,9 @@ Public Class PeriodoDA
             periodo.Id = currentRow("TN_Id_Periodo").ToString()
             periodo.Nombre = currentRow("TC_Nombre_Periodo").ToString()
             periodo.Dias = Int32.Parse(currentRow("TN_Dias_Periodo").ToString())
-
         Next
         Return periodo
     End Function
-
 
     Public Function existePeriodo(id As Integer) As Integer
         Dim sqlConn As New SqlConnection(Me.connection)

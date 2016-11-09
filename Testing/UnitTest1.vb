@@ -2,6 +2,7 @@
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports GCA.Domain
 Imports CGA.DataAccess
+Imports GCA.Business
 
 <TestClass()> Public Class UnitTest1
 
@@ -14,6 +15,9 @@ Imports CGA.DataAccess
 
         'Dim da As New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
         'Dim f As String = da.obtenerFechaAsignacionControl("1", "1")
+
+        'Dim da As New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim ds As DataSet = da.obtenerControlesOficina("1")
 
         'Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
         'For Each currentRow As DataRow In dataRowCollection
@@ -44,9 +48,19 @@ Imports CGA.DataAccess
         'today = New System.DateTime(2016, 11, 5)
         'answer = today.AddDays(7)
 
-        Dim od As OficinaDA = New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        Dim out As Integer = od.ActualizarFechaOficinaAsignacion("2016-12-01", "1", "3")
+        'Dim od As OficinaDA = New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim out As Integer = od.ActualizarFechaOficinaAsignacion("2016-12-01", "1", "3")
 
+        'Dim oficina As New GCA.Domain.Oficina
+        'oficina = New Oficina
+        'oficina.Codigo = "7"
+        'oficina.Nombre = "Oficina de r"
+        'Console.Write(da.actualizarOficina(oficina))
+        'Dim control As New GCA.Business.DocControlBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim periodoBusiness As New GCA.Business.PeriodoBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim periodo = periodoBusiness.obtenerPeriodoCodigo(3)
+        'Console.WriteLine(periodo.Dias)
+        'Console.Write(control.obtenerPorcentajeFecha("01-11-2016,30"))
 
     End Sub
 
