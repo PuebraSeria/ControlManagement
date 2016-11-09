@@ -40,10 +40,23 @@ Public Class OficinaBusiness
         Return Me.oficinaDA.obtenerOficinas()
     End Function
 
+    Public Function obtenerFechaAsignacionControl(idOficina As String, idControl As String) As String
+        Return Me.oficinaDA.obtenerFechaAsignacionControl(idOficina, idControl)
+    End Function
+
+
+
     Public Function obtenerControlesOficina(codOficina As String) As DataSet
         Return Me.oficinaDA.obtenerControlesOficina(codOficina)
     End Function
 
+    Public Function existeOficina(codigo As String) As Integer
+        Return Me.oficinaDA.existeOficina(codigo)
+    End Function
 
+    Public Function ActualizarFechaOficinaAsignacion(fechaAsignacion As String, codOficina As String,
+                                                     codDoc As String) As Integer
+        Return Me.oficinaDA.ActualizarFechaOficinaAsignacion(fechaAsignacion, codOficina, codDoc)
+    End Function
 
 End Class

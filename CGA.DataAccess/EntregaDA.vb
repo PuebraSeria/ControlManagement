@@ -25,6 +25,9 @@ Public Class EntregaDA
         cmdControl.Parameters.Add(New SqlParameter("@codigoO", entrega.Codigo_Oficina))
         cmdControl.Parameters.Add(New SqlParameter("@adjunto", entrega.Adjunto))
         cmdControl.Parameters.Add(New SqlParameter("@periodo", entrega.Periodo_Entrega))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdControl.Parameters.Add(parameterCode)
 
         cmdControl.Connection.Open()
         Dim respuesta As Integer = cmdControl.ExecuteNonQuery()

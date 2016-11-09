@@ -32,6 +32,10 @@ Public Class SupervisorBusiness
         Return Me.SupervisorDA.existeSupervisor(codigo)
     End Function
 
+    Public Function obtenerSupervisores() As DataSet
+        Return Me.SupervisorDA.obtenerSupervisores()
+    End Function
+
 
     Public Property ConexionString() As String
         Get

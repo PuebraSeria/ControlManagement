@@ -13,7 +13,7 @@ Imports CGA.DataAccess
         'Console.WriteLine(oficina.Codigo + " - " + oficina.Nombre)
 
         'Dim da As New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        'Dim ds As DataSet = da.obtenerControlesOficina("1")
+        'Dim f As String = da.obtenerFechaAsignacionControl("1", "1")
 
         'Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
         'For Each currentRow As DataRow In dataRowCollection
@@ -23,16 +23,30 @@ Imports CGA.DataAccess
         'Next
         'Console.ReadLine()
 
-        Dim eb As New EntregaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        Dim ds As DataSet = eb.obtenerUltimaEntregaControlOficina("1", "1")
+        'Dim eb As New EntregaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim ds As DataSet = eb.obtenerUltimaEntregaControlOficina("1", "1")
 
-        Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
-        Dim flag As Int32 = 0
-        For Each currentRow As DataRow In dataRowCollection
-            Console.WriteLine((currentRow(0).ToString()))
-            flag += 1
-        Next
-        Console.ReadLine()
+        'Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
+        'Dim flag As Int32 = 0
+        'For Each currentRow As DataRow In dataRowCollection
+        '    Console.WriteLine((currentRow(0).ToString()))
+        '    flag += 1
+        'Next
+        'Console.ReadLine()
+
+        'Dim fechaFinalPeriodo As Date = CDate("05-11-2016")
+        'fechaFinalPeriodo.AddDays(7)
+        'Dim str As String = fechaFinalPeriodo.ToString()
+
+        'Dim today As System.DateTime
+        'Dim answer As System.DateTime
+
+        'today = New System.DateTime(2016, 11, 5)
+        'answer = today.AddDays(7)
+
+        Dim od As OficinaDA = New OficinaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        Dim out As Integer = od.ActualizarFechaOficinaAsignacion("2016-12-01", "1", "3")
+
 
     End Sub
 

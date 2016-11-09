@@ -5,7 +5,7 @@
     Protected tc_CodDocControl_TEntrega As String
     Protected tf_FechaEntrega_TEntrega As String
     Protected tc_Adjunto_TEntrega As String
-    Protected tn_Periodo_TEntrega As Integer
+    Protected tn_Periodo_TEntrega As String
 
 
     Public Sub New()
@@ -18,7 +18,7 @@
 
     End Sub
 
-    Public Sub New(codigo_oficina As String, codigo_control As String, adjunto As String, periodo As Integer)
+    Public Sub New(codigo_oficina As String, codigo_control As String, adjunto As String, periodo As String)
         Me.tc_CodOficina_TEntrega = codigo_oficina
         Me.tc_CodDocControl_TEntrega = codigo_control
         Me.tc_Adjunto_TEntrega = adjunto

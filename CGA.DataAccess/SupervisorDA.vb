@@ -29,7 +29,7 @@ Public Class SupervisorDA
         cmdInsert.Parameters.Add(New SqlParameter("@apellido1", supervisor.PrimerApellido))
         cmdInsert.Parameters.Add(New SqlParameter("@apellido2", supervisor.SegundoApellido))
         cmdInsert.Parameters.Add(New SqlParameter("@email", supervisor.Email))
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -61,7 +61,7 @@ Public Class SupervisorDA
         cmdInsert.Parameters.Add(New SqlParameter("@apellido2", supervisor.SegundoApellido))
         cmdInsert.Parameters.Add(New SqlParameter("@email", supervisor.Email))
 
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -85,7 +85,7 @@ Public Class SupervisorDA
         cmdInsert.CommandType = CommandType.StoredProcedure
 
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -156,4 +156,26 @@ Public Class SupervisorDA
 
         Return answer
     End Function
+
+    Public Function obtenerSupervisores() As DataSet
+
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT * From TSupervisor"
+
+        Dim sqlAdpater As New SqlDataAdapter()
+        sqlAdpater.SelectCommand = New SqlCommand()
+        sqlAdpater.SelectCommand.CommandText = query
+        sqlAdpater.SelectCommand.Connection = sqlConn
+
+        Dim dsSupervisor As New DataSet()
+
+        sqlAdpater.Fill(dsSupervisor)
+
+        sqlAdpater.SelectCommand.Connection.Close()
+
+        Return dsSupervisor
+    End Function
+
 End Class
+

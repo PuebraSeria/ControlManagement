@@ -26,7 +26,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@nombre", oficina.Nombre))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -56,7 +56,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@nombre", oficina.Nombre))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -85,7 +85,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -114,7 +114,7 @@ Public Class OficinaDA
         cmdInsert.Parameters.Add(New SqlParameter("@codigoO", codigoOficina))
 
         'Variables que retorna
-        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Bit)
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
 
@@ -203,11 +203,11 @@ Public Class OficinaDA
         Return dsControl
     End Function
 
-    Public Function obtenerFechaAsignacionControl() As String
+    Public Function obtenerFechaAsignacionControl(idOficina As String, idControl As String) As String
         Dim sqlConn As New SqlConnection(Me.connection)
 
-        Dim query As String = " select TF_FechaAsigna_Ofn_X_DocCtrl from TOfn_X_DocCtrl where" +
-                                "TC_CodOficina_Ofn_X_DocCtrl = 1 And TC_CodDocControl_Ofn_X_DocCtrl = 1"
+        Dim query As String = " select TF_FechaAsigna_Ofn_X_DocCtrl from TOfn_X_DocCtrl where " +
+                                "TC_CodOficina_Ofn_X_DocCtrl = " + idOficina + " And TC_CodDocControl_Ofn_X_DocCtrl = " + idControl
 
         Dim sqlAdpaterBank As New SqlDataAdapter()
         sqlAdpaterBank.SelectCommand = New SqlCommand()
@@ -227,8 +227,62 @@ Public Class OficinaDA
             fechaAsignacion = currentRow(0).ToString()
         Next
 
+        Dim dateA As Date = CDate(fechaAsignacion)
+        fechaAsignacion = dateA.ToString("dd-MM-yyyy")
+
         Return fechaAsignacion
 
+    End Function
+
+    Public Function existeOficina(codigo As String) As Integer
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim sqlStoredProcedure As String = "PA_ExisteOficina"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, sqlConn)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        cmdInsert.Connection.Close()
+
+        Return answer
+    End Function
+
+    Public Function ActualizarFechaOficinaAsignacion(fechaAsignacion As String, codOficina As String,
+                                                     codDoc As String) As Integer
+        Dim sqlConn As New SqlConnection(Me.connection)
+
+        Dim sqlStoredProcedure As String = "PA_ActualizarFechaAsigna"
+        Dim cmdInsert As New SqlCommand(sqlStoredProcedure, sqlConn)
+
+        cmdInsert.CommandType = CommandType.StoredProcedure
+
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoOficina", codOficina))
+        cmdInsert.Parameters.Add(New SqlParameter("@nuevaFecha", fechaAsignacion))
+        cmdInsert.Parameters.Add(New SqlParameter("@codigoDoc", codDoc))
+        Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
+        parameterCode.Direction = ParameterDirection.Output
+        cmdInsert.Parameters.Add(parameterCode)
+
+        cmdInsert.Connection.Open()
+        cmdInsert.ExecuteNonQuery()
+
+
+        Dim answer As Integer = Int32.Parse(cmdInsert.Parameters("@estado").Value.ToString())
+
+        cmdInsert.Connection.Close()
+
+        Return answer
     End Function
 
 End Class
