@@ -244,6 +244,7 @@ Public Class DocControlDA
                     mesInicioPeriodo = (mesFinalPeriodo - (cantMeses - 1))
 
                     'mes de asignacion < mesInicioPeriodo
+
                     If Int32.Parse(partesFecha(1)) >= mesInicioPeriodo AndAlso Int32.Parse(partesFecha(1)) <= mesFinalPeriodo Then
                         fechaInicio = New DateTime(annoActual, mesInicioPeriodo, 1)
                         ts = fechaActual - fechaInicio
@@ -251,11 +252,17 @@ Public Class DocControlDA
                         If diferencia_dias > cantDias Then
                             diferencia_dias = cantDias
                         End If
-                    Else
+                    ElseIf cantDias > 30 Then
                         Dim fecha_Asignacion As New DateTime(Int32.Parse(partesFecha(2)), Int32.Parse(partesFecha(1)), Int32.Parse(partesFecha(0)))
                         ts = fechaActual - fecha_Asignacion
                         diferencia_dias = ts.Days
+                    Else
+                        Dim fecha_Asignacion As New DateTime(Int32.Parse(partesFecha(2)), Int32.Parse(partesFecha(1)), 1)
+                        ts = fechaActual - fecha_Asignacion
+                        diferencia_dias = ts.Days
                     End If
+
+
                     ''se obtiene en cual porcentaje está
                     obtenerCantidadesSegunPorcentaje(diferencia_dias, cantDias)
                     ''si es por días o semanales
