@@ -16,7 +16,7 @@ Public Class EntregaBusiness
     End Function
 
     Public Function obtenerUltimaEntregaControlOficina(codOficina As String, codControl As String) As DataSet
-        Return Me.obtenerUltimaEntregaControlOficina(codOficina, codControl)
+        Return Me.entrega.obtenerUltimaEntregaControlOficina(codOficina, codControl)
     End Function
 
 End Class

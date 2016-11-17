@@ -62,6 +62,12 @@ Imports GCA.Business
         'Console.WriteLine(periodo.Dias)
         'Console.Write(control.obtenerPorcentajeFecha("01-11-2016,30"))
 
+        Dim entrega As New GCA.Business.EntregaBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        Dim informacion = entrega.obtenerUltimaEntregaControlOficina("1", "3")
+
+        For Each fila As DataRow In informacion.Tables(0).Rows()
+            Console.WriteLine(DatePart(DateInterval.Year, Date.Parse(fila(1))))
+        Next
     End Sub
 
 End Class
