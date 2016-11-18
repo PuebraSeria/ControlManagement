@@ -92,7 +92,7 @@ Public Class DocControlDA
     End Function
 
 
-    Public Function eliminarControl(codigo As Integer) As Integer
+    Public Function eliminarControl(codigo As String) As Integer
 
         Dim conn As New SqlConnection(Me.connectionString)
 

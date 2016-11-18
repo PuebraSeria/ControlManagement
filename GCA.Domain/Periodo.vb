@@ -41,7 +41,7 @@
     End Property
 
     ' Métodos propiedad Nombre
-    Public Property Dias() As String
+    Public Property Dias() As Integer
         Get
             Return Me.tn_Dias_Periodo
         End Get

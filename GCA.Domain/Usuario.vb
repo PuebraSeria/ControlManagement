@@ -32,7 +32,7 @@
     End Sub
 
 
-    Public Property Codigo() As Integer
+    Public Property Codigo() As String
         Get
             Return u_codigo
 
