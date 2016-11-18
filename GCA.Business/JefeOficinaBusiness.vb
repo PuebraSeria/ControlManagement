@@ -38,6 +38,10 @@ Public Class JefeOficinaBusiness
         Return Me.JefeOficinaDA.existeJefeOficina(codigo, contrasenna)
     End Function
 
+    Public Function existeJefeOficinaV(codigo As String) As Integer
+        Return Me.JefeOficinaDA.existeJefeOficinaV(codigo)
+    End Function
+
     Public Function obtenerJefes() As DataSet
         Return Me.JefeOficinaDA.obtenerJefes()
     End Function

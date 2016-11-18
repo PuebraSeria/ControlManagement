@@ -38,6 +38,10 @@ Public Class SupervisorBusiness
         Return Me.SupervisorDA.existeSupervisor(codigo, contrasenna)
     End Function
 
+    Public Function existeSupervisorV(codigo As String) As Integer
+        Return Me.SupervisorDA.existeSupervisorV(codigo)
+    End Function
+
     Public Function obtenerSupervisores() As DataSet
         Return Me.SupervisorDA.obtenerSupervisores()
     End Function
