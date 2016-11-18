@@ -209,8 +209,11 @@ Public Class OficinaDA
 
         Return dsBrand
     End Function
-
-    'Función que permite obtener controles asigandos a una oficina
+    ''' <summary>
+    ''' Función que nos permite obtener los controles asignados a una oficina
+    ''' </summary>
+    ''' <param name="codOficina">Corresponde al código de la oficina</param>
+    ''' <returns>DataSet: Que contiene la información de los controles asignados</returns>
     Public Function obtenerControlesOficina(codOficina As String) As DataSet
 
         Dim sqlConn As New SqlConnection(Me.connection)
