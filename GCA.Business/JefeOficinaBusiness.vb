@@ -27,9 +27,15 @@ Public Class JefeOficinaBusiness
         Return Me.JefeOficinaDA.obtenerJefeOficinaCodigo(codigo)
 
     End Function
-
-    Public Function existeJefeOficina(codigo As String) As Integer
-        Return Me.JefeOficinaDA.existeJefeOficina(codigo)
+    ''' <summary>
+    ''' Función que nos permite mandar los valores ingresados a la capa de acceso a bases de datos
+    ''' para saber si el jefe de oficina existe o no
+    ''' </summary>
+    ''' <param name="codigo">Corresponde al código del jefe de oficina</param>
+    ''' <param name="contrasenna">Corresponde a la contraseña del jefe de oficina</param>
+    ''' <returns>Integer: 0 si no existe y un 1 si existe</returns>
+    Public Function existeJefeOficina(codigo As String, contrasenna As String) As Integer
+        Return Me.JefeOficinaDA.existeJefeOficina(codigo, contrasenna)
     End Function
 
     Public Function obtenerJefes() As DataSet

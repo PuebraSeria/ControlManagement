@@ -132,8 +132,13 @@ Public Class SupervisorDA
         Next
         Return supervisor
     End Function
-
-    Public Function existeSupervisor(codigo As String) As Integer
+    ''' <summary>
+    ''' Función que nos permite saber si existe o no un supervisor
+    ''' </summary>
+    ''' <param name="codigo">Corresponde al código del supervisor</param>
+    ''' <param name="contrasenna">Corresponde a la contraseña del supervisor</param>
+    ''' <returns>Integer: 0 si no existe y un 1 si existe</returns>
+    Public Function existeSupervisor(codigo As String, contrasenna As String) As Integer
         Dim sqlConn As New SqlConnection(Me.connectionString)
 
         Dim sqlStoredProcedure As String = "PA_ExisteSupervisor"
@@ -142,6 +147,7 @@ Public Class SupervisorDA
         cmdInsert.CommandType = CommandType.StoredProcedure
 
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
+        cmdInsert.Parameters.Add(New SqlParameter("@contrasenna", contrasenna))
         Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
