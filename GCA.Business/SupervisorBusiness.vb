@@ -27,9 +27,15 @@ Public Class SupervisorBusiness
         Return Me.SupervisorDA.obtenerSupervisorCodigo(codigo)
 
     End Function
-
-    Public Function existeSupervisor(codigo As String) As Integer
-        Return Me.SupervisorDA.existeSupervisor(codigo)
+    ''' <summary>
+    ''' Función que nos mandar los datos a la capa de acceso a bases de datos para saber si el
+    ''' supervisor existe o no
+    ''' </summary>
+    ''' <param name="codigo">Corresponde al código del supervisor</param>
+    ''' <param name="contrasenna">Corresponde a la contraseña del supervisor</param>
+    ''' <returns>Integer: 0 si no existe y un 1 si existe</returns>
+    Public Function existeSupervisor(codigo As String, contrasenna As String) As Integer
+        Return Me.SupervisorDA.existeSupervisor(codigo, contrasenna)
     End Function
 
     Public Function obtenerSupervisores() As DataSet

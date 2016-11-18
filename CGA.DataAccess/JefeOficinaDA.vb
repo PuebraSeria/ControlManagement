@@ -136,8 +136,13 @@ Public Class JefeOficinaDA
         Next
         Return jefe
     End Function
-
-    Public Function existeJefeOficina(codigo As String) As Integer
+    ''' <summary>
+    ''' Función que nos permite saber si existe o no un jefe de oficina.
+    ''' </summary>
+    ''' <param name="codigo">Corresponde al código del jefe de oficina</param>
+    ''' <param name="contrasenna">Corresponde a la contraseña del jefe de oficina</param>
+    ''' <returns>Integer: 1 si existe y un 0 si no existe</returns>
+    Public Function existeJefeOficina(codigo As String, contrasenna As String) As Integer
         Dim sqlConn As New SqlConnection(Me.connectionString)
 
         Dim sqlStoredProcedure As String = "PA_ExisteJefeOficina"
@@ -146,6 +151,7 @@ Public Class JefeOficinaDA
         cmdInsert.CommandType = CommandType.StoredProcedure
 
         cmdInsert.Parameters.Add(New SqlParameter("@codigo", codigo))
+        cmdInsert.Parameters.Add(New SqlParameter("@contrasenna", contrasenna))
         Dim parameterCode As New SqlParameter("@estado", SqlDbType.Int)
         parameterCode.Direction = ParameterDirection.Output
         cmdInsert.Parameters.Add(parameterCode)
@@ -160,7 +166,7 @@ Public Class JefeOficinaDA
         Return answer
     End Function
 
-        Public Function obtenerJefes() As DataSet
+    Public Function obtenerJefes() As DataSet
 
         Dim sqlConn As New SqlConnection(Me.connectionString)
 
