@@ -28,7 +28,7 @@ Imports GCA.Business
         'Console.ReadLine()
 
         Dim eb As New EntregaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        Dim ds As DataSet = eb.obtenerControlesEntregadosRangoFechas("'2016-11-08'", "'2016-11-08'")
+        Dim ds As DataSet = eb.obtenerCantidadControlesEntregasCadaOficiaCadaDocControl
 
         Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
         For Each currentRow As DataRow In dataRowCollection

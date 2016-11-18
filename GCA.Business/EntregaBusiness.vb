@@ -19,4 +19,20 @@ Public Class EntregaBusiness
         Return Me.entrega.obtenerUltimaEntregaControlOficina(codOficina, codControl)
     End Function
 
+    Public Function obtenerCantidadControlesEntregados() As DataSet
+        Return Me.entrega.obtenerCantidadControlesEntregados()
+    End Function
+
+    Public Function obtenerCantidadControlesEntregadosCadaOficina() As DataSet
+        Return Me.entrega.obtenerCantidadControlesEntregadosCadaOficina()
+    End Function
+
+    Public Function obtenerCantidadControlesEntregasCadaOficiaCadaDocControl() As DataSet
+        Return Me.entrega.obtenerCantidadControlesEntregasCadaOficiaCadaDocControl()
+    End Function
+
+    Public Function obtenerControlesEntregadosRangoFechas(fechaInicio As String, fechaFinal As String) As DataSet
+        Return Me.obtenerControlesEntregadosRangoFechas(fechaInicio, fechaFinal)
+    End Function
+
 End Class
