@@ -209,8 +209,11 @@ Public Class OficinaDA
 
         Return dsBrand
     End Function
-
-    'Función que permite obtener controles asigandos a una oficina
+    ''' <summary>
+    ''' Función que nos permite obtener los controles asignados a una oficina
+    ''' </summary>
+    ''' <param name="codOficina">Corresponde al código de la oficina</param>
+    ''' <returns>DataSet: Que contiene la información de los controles asignados</returns>
     Public Function obtenerControlesOficina(codOficina As String) As DataSet
 
         Dim sqlConn As New SqlConnection(Me.connection)
@@ -218,7 +221,7 @@ Public Class OficinaDA
         Dim query As String = "select TC_Codigo_DocControl, TC_Nombre_DocControl, TN_Periocidad_DocControl, TF_FechaInicio_DocControl,
                                 TF_FechaFinal_DocControl,TF_FechaAsigna_Ofn_X_DocCtrl from TDocControl inner join TOfn_X_DocCtrl on
                                 TDocControl.TC_Codigo_DocControl = TOfn_X_DocCtrl.TC_CodDocControl_Ofn_X_DocCtrl
-                                where TOfn_X_DocCtrl.TC_CodOficina_Ofn_X_DocCtrl = " + codOficina
+                                where TOfn_X_DocCtrl.TC_CodOficina_Ofn_X_DocCtrl = '" + codOficina + "'"
 
         Dim sqlAdpaterBank As New SqlDataAdapter()
         sqlAdpaterBank.SelectCommand = New SqlCommand()
