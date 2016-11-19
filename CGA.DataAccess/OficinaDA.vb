@@ -240,7 +240,7 @@ Public Class OficinaDA
         Dim sqlConn As New SqlConnection(Me.connection)
 
         Dim query As String = " select TF_FechaAsigna_Ofn_X_DocCtrl from TOfn_X_DocCtrl where " +
-                                "TC_CodOficina_Ofn_X_DocCtrl = " + idOficina + " And TC_CodDocControl_Ofn_X_DocCtrl = " + idControl
+                                "TC_CodOficina_Ofn_X_DocCtrl = '" + idOficina + "' And TC_CodDocControl_Ofn_X_DocCtrl = '" + idControl + "'"
 
         Dim sqlAdpaterBank As New SqlDataAdapter()
         sqlAdpaterBank.SelectCommand = New SqlCommand()
