@@ -83,6 +83,7 @@ Public Class DocControlBusiness
 
         'Se obtiene el periodo actual del año
         Dim fechaActual As DateTime = DateTime.Now
+        Dim fechaAsignado As Date
         Dim fechaInicio As DateTime
         Dim ts As TimeSpan
         Dim periodo As Integer
@@ -98,6 +99,7 @@ Public Class DocControlBusiness
         For i As Integer = 0 To infor.Length - 1
             Dim parametros As [String]() = infor(i).Split(","c)
             If parametros(0).Length > 2 Then
+                fechaAsignado = parametros(0)
                 Dim partesFecha As [String]() = parametros(0).Split("-"c)
                 cantDias = Int32.Parse(parametros(1))
 
@@ -120,7 +122,6 @@ Public Class DocControlBusiness
                     'mes de asignacion < mesInicioPeriodo
                     If Int32.Parse(partesFecha(1)) >= mesInicioPeriodo AndAlso Int32.Parse(partesFecha(1)) <= mesFinalPeriodo Then
                         fechaInicio = New DateTime(annoActual, mesInicioPeriodo, 1)
-                        fechaEntrega = DateAdd(DateInterval.Month, cantMeses, fechaInicio)
                         ts = fechaActual - fechaInicio
                         diferencia_dias = ts.Days
                         If diferencia_dias > cantDias Then
@@ -131,6 +132,7 @@ Public Class DocControlBusiness
                         ts = fechaActual - fecha_Asignacion
                         diferencia_dias = ts.Days
                     End If
+                    fechaEntrega = DateAdd(DateInterval.Month, cantMeses, fechaAsignado)
                     ''se obtiene en cual porcentaje está
                     porcentajeActual = obtenerCantidadPorcentaje(diferencia_dias, cantDias)
 
@@ -162,7 +164,7 @@ Public Class DocControlBusiness
                         ts = fechaActual - fecha_Asignacion
                     Else
                         Dim fecha_Asignacion As New DateTime(annoFin, 1, 1)
-                        fechaEntrega = DateAdd(DateInterval.Year, cantAnnos, fecha_Asignacion)
+                        fechaEntrega = DateAdd(DateInterval.Year, cantAnnos, fechaAsignado)
                         ts = fechaActual - fecha_Asignacion
                     End If
                     diferencia_dias = ts.Days
