@@ -71,4 +71,87 @@ Public Class EntregaDA
         Return dsControl
     End Function
 
+    Public Function obtenerCantidadControlesEntregados() As DataSet
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT TDocControl.TC_Nombre_DocControl AS 'Documento de control', COUNT(*) AS 'Cantidad entregada' FROM TDocControl INNER JOIN
+                                TEntrega ON TDocControl.TC_Codigo_DocControl = TEntrega.TC_CodDocControl_TEntrega GROUP BY TDocControl.TC_Nombre_DocControl"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsControl As New DataSet()
+
+        sqlAdpaterBank.Fill(dsControl)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsControl
+    End Function
+
+    Public Function obtenerCantidadControlesEntregadosCadaOficina() As DataSet
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT TOficina.TC_Nombre_Oficina AS 'Nombre Oficina', COUNT(*) AS 'Cantidad entregada' FROM TEntrega INNER JOIN
+                                TOficina ON TEntrega.TC_CodOficina_TEntrega = TOficina.TC_Codigo_Oficina GROUP BY TOficina.TC_Nombre_Oficina"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsControl As New DataSet()
+
+        sqlAdpaterBank.Fill(dsControl)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsControl
+    End Function
+
+    Public Function obtenerCantidadControlesEntregasCadaOficiaCadaDocControl() As DataSet
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT TOficina.TC_Nombre_Oficina, TDocControl.TC_Nombre_DocControl, COUNT(TEntrega.TN_Id_TEntrega) AS 'Cantidad evidencias entregadas'
+                                FROM TEntrega INNER JOIN TOficina ON TEntrega.TC_CodOficina_TEntrega = TOficina.TC_Codigo_Oficina INNER JOIN
+                                TDocControl ON TEntrega.TC_CodDocControl_TEntrega = TDocControl.TC_Codigo_DocControl GROUP BY TOficina.TC_Nombre_Oficina,
+                                TDocControl.TC_Nombre_DocControl"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsControl As New DataSet()
+
+        sqlAdpaterBank.Fill(dsControl)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsControl
+    End Function
+
+    Public Function obtenerControlesEntregadosRangoFechas(fechaInicio As String, fechaFinal As String) As DataSet
+        Dim sqlConn As New SqlConnection(Me.connectionString)
+
+        Dim query As String = "SELECT TDocControl.TC_Nombre_DocControl AS 'Documento de control', TOficina.TC_Nombre_Oficina AS 'Oficina', TEntrega.TF_FechaEntrega_TEntrega AS 'Fecha entrega'
+                                FROM TDocControl INNER JOIN TEntrega ON TDocControl.TC_Codigo_DocControl = TEntrega.TC_CodDocControl_TEntrega INNER JOIN
+                                TOficina ON TEntrega.TC_CodOficina_TEntrega = TOficina.TC_Codigo_Oficina WHERE (TEntrega.TF_FechaEntrega_TEntrega BETWEEN" + fechaInicio + "AND" + fechaFinal + ")"
+
+        Dim sqlAdpaterBank As New SqlDataAdapter()
+        sqlAdpaterBank.SelectCommand = New SqlCommand()
+        sqlAdpaterBank.SelectCommand.CommandText = query
+        sqlAdpaterBank.SelectCommand.Connection = sqlConn
+
+        Dim dsControl As New DataSet()
+
+        sqlAdpaterBank.Fill(dsControl)
+
+        sqlAdpaterBank.SelectCommand.Connection.Close()
+
+        Return dsControl
+    End Function
+
 End Class

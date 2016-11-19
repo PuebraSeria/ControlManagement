@@ -27,16 +27,14 @@ Imports GCA.Business
         'Next
         'Console.ReadLine()
 
-        'Dim eb As New EntregaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        'Dim ds As DataSet = eb.obtenerUltimaEntregaControlOficina("1", "1")
+        Dim eb As New EntregaDA("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        Dim ds As DataSet = eb.obtenerCantidadControlesEntregasCadaOficiaCadaDocControl
 
-        'Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
-        'Dim flag As Int32 = 0
-        'For Each currentRow As DataRow In dataRowCollection
-        '    Console.WriteLine((currentRow(0).ToString()))
-        '    flag += 1
-        'Next
-        'Console.ReadLine()
+        Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
+        For Each currentRow As DataRow In dataRowCollection
+            Console.WriteLine((currentRow(0).ToString()) + " - " + (currentRow(1).ToString) + " - " + currentRow(2).ToString)
+        Next
+        Console.ReadLine()
 
         'Dim fechaFinalPeriodo As Date = CDate("05-11-2016")
         'fechaFinalPeriodo.AddDays(7)
@@ -62,12 +60,12 @@ Imports GCA.Business
         'Console.WriteLine(periodo.Dias)
         'Console.Write(control.obtenerPorcentajeFecha("01-11-2016,30"))
 
-        Dim entrega As New GCA.Business.EntregaBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
-        Dim informacion = entrega.obtenerUltimaEntregaControlOficina("1", "3")
+        'Dim entrega As New GCA.Business.EntregaBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+        'Dim informacion = entrega.obtenerUltimaEntregaControlOficina("1", "3")
 
-        For Each fila As DataRow In informacion.Tables(0).Rows()
-            Console.WriteLine(DatePart(DateInterval.Year, Date.Parse(fila(1))))
-        Next
+        'For Each fila As DataRow In informacion.Tables(0).Rows()
+        '    Console.WriteLine(DatePart(DateInterval.Year, Date.Parse(fila(1))))
+        'Next
     End Sub
 
 End Class
