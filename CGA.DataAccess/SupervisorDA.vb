@@ -122,12 +122,12 @@ Public Class SupervisorDA
 
 
         For Each currentRow As DataRow In dataRowCollection
-            supervisor.Codigo = currentRow("TC_Codigo_Usuario").ToString()
-            supervisor.DNI = currentRow("TC_DNI_Usuario").ToString()
-            supervisor.Contraseña = currentRow("TC_Contraseña_Usuario").ToString()
-            supervisor.PrimerApellido = currentRow("TC_PrimerApellido_Usuario").ToString()
-            supervisor.SegundoApellido = currentRow("TC_SegundoApellido_Usuario").ToString()
-            supervisor.Email = currentRow("TC_Email_Usuario").ToString()
+            supervisor.Codigo = currentRow("TC_Codigo_Supervisor").ToString()
+            supervisor.DNI = currentRow("TC_DNI_Supervisor").ToString()
+            supervisor.Contraseña = currentRow("TC_Contrasenna_Supervisor").ToString()
+            supervisor.PrimerApellido = currentRow("TC_PrimerApellido_Supervisor").ToString()
+            supervisor.SegundoApellido = currentRow("TC_SegundoApellido_Supervisor").ToString()
+            supervisor.Email = currentRow("TC_Email_Supervisor").ToString()
 
         Next
         Return supervisor

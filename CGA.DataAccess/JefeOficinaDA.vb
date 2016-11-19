@@ -124,12 +124,12 @@ Public Class JefeOficinaDA
 
 
         For Each currentRow As DataRow In dataRowCollection
-            jefe.Codigo = currentRow("TC_Codigo_Usuario").ToString()
-            jefe.DNI = currentRow("TC_DNI_Usuario").ToString()
-            jefe.Contraseña = currentRow("TC_Contraseña_Usuario").ToString()
-            jefe.PrimerApellido = currentRow("TC_PrimerApellido_Usuario").ToString()
-            jefe.SegundoApellido = currentRow("TC_SegundoApellido_Usuario").ToString()
-            jefe.Email = currentRow("TC_Email_Usuario").ToString()
+            jefe.Codigo = currentRow("TC_Codigo_JefeOficina").ToString()
+            jefe.DNI = currentRow("TC_DNI_JefeOficina").ToString()
+            jefe.Contraseña = currentRow("TC_Contrasenna_JefeOficina").ToString()
+            jefe.PrimerApellido = currentRow("TC_PrimerApellido_JefeOficina").ToString()
+            jefe.SegundoApellido = currentRow("TC_SegundoApellido_JefeOficina").ToString()
+            jefe.Email = currentRow("TC_Email_JefeOficina").ToString()
 
             Dim ofDA As OficinaDA = New OficinaDA(Me.connectionString)
             jefe.Oficina = ofDA.obtenerOficinaCodigo(currentRow("TC_CodOficina_JefeOficina").ToString())
